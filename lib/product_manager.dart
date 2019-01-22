@@ -6,7 +6,7 @@ class ProductManager extends StatefulWidget {
   final String startingProduct;
   ProductManager(
       {this.startingProduct =
-          'Sweets Tester'}); // Now Product MAnager has default value
+          ""}); // Now Product MAnager has default value
 
   @override
   State<StatefulWidget> createState() {
@@ -20,7 +20,9 @@ class _ProductManagerState extends State<ProductManager> {
   @override
   void initState() {
     super.initState();
+    if(widget.startingProduct != ""){
     _products.add(widget.startingProduct);
+    }
   }
 
   void _addProducts(String product) {
