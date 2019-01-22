@@ -20,12 +20,12 @@ class Products extends StatelessWidget {
     Widget _buildProductLists(){
        Widget productCard;
         if(products.length > 0){
-          productCard = ListView.builder( 
+          productCard = ListView.builder ( 
           itemBuilder: _buildProductItem,
           itemCount: products.length,
           );
         } else {
-          productCard =  Center(child: Text('No Products Found'));
+          productCard =  Container(); // Empty Container Widget like null
         }
         return productCard;
       
