@@ -37,7 +37,7 @@ class _ProductManagerState extends State<ProductManager> {
           margin: EdgeInsets.all(10.0),
           child: ProductControl(_addProducts),
         ),
-        Container( height: 300.0,child: Products(_products)) // Scrorlling ListView Inside Controller
+        Expanded( child: Products(_products)) // Take all remaining space and scroll
       ],
     );
   }
