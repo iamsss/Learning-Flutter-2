@@ -7,7 +7,7 @@ class Products extends StatelessWidget {
 
     @override
       Widget build(BuildContext context) {
-        return ListView(
+        return ListView( // List View Contains list as childrens 
                 children: products
                     .map((element) => Card(
                           child: Column(
