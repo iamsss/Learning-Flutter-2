@@ -6,8 +6,22 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: <Widget>[
+            AppBar(
+              automaticallyImplyLeading: false, // To Hide Menu Icon
+              title: Text('Choose'),
+            ),
+            ListTile(
+              title: Text('Manage Products'),
+              onTap: (){},
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
-        title: Text('Easy List Reload'),
+        title: Text('Products Page'),
       ),
       body: ProductManager(),
     );

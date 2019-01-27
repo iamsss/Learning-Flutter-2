@@ -11,7 +11,7 @@ class ProductPage extends StatelessWidget {
     return WillPopScope( // Handle the default backbutton press
       onWillPop: (){
         print('Back Button Pressed');
-        Navigator.pop(context,true);
+        Navigator.pop(context,false);
         return Future.value(false); 
       },
       child: Scaffold(
