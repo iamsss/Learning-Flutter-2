@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import './products.dart';
 
 class ProductManager extends StatefulWidget { 
-  final String startingProduct;
+  final Map startingProduct;
   ProductManager(
-      {this.startingProduct =
-          ""}); // Now Product MAnager has default value
+      {this.startingProduct}); // Now Product MAnager has default value
 
   @override
   State<StatefulWidget> createState() {
@@ -15,17 +14,17 @@ class ProductManager extends StatefulWidget {
 }
 
 class _ProductManagerState extends State<ProductManager> {
-  List<String> _products = [];
+  List<Map<String, String>> _products = [];
 
   @override
   void initState() {
     super.initState();
-    if(widget.startingProduct != ""){
+    if(widget.startingProduct != null){
     _products.add(widget.startingProduct);
     }
   }
 
-  void _addProducts(String product) {
+  void _addProducts(Map<String, String> product) {
     setState(() {
       _products.add(product);
     });
