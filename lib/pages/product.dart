@@ -8,8 +8,13 @@ class ProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
+    return WillPopScope( // Handle the default backbutton press
+      onWillPop: (){
+        print('Back Button Pressed');
+        Navigator.pop(context,true);
+        return Future.value(false); 
+      },
+      child: Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
@@ -23,10 +28,11 @@ class ProductPage extends StatelessWidget {
             ),
             RaisedButton(
               color: Theme.of(context).accentColor,
-              child: Text('BACK'),
+              child: Text('DELETE'),
               onPressed: () => Navigator.pop(context, true),
             )
           ]),
-    );
+    )
+    ,); 
   }
 }
