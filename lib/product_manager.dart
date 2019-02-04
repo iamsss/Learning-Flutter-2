@@ -2,39 +2,12 @@ import './product_control.dart';
 import 'package:flutter/material.dart';
 import './products.dart';
 
-class ProductManager extends StatefulWidget { 
-  final Map startingProduct;
-  ProductManager(
-      {this.startingProduct}); // Now Product MAnager has default value
+class ProductManager extends StatelessWidget { 
 
-  @override
-  State<StatefulWidget> createState() {
-    return _ProductManagerState();
-  }
-}
-
-class _ProductManagerState extends State<ProductManager> {
-  List<Map<String, String>> _products = [];
-
-  @override
-  void initState() {
-    super.initState();
-    if(widget.startingProduct != null){
-    _products.add(widget.startingProduct);
-    }
-  }
-
-  void _addProducts(Map<String, String> product) {
-    setState(() {
-      _products.add(product);
-    });
-  }
-
-  void _deleteProduct(int index){
-    setState(() {
-     _products.removeAt(index); 
-    });
-  }
+final List<Map<String, String>> products;
+final Function addProducts;
+final Function deleteProducts;
+ProductManager(this.products,this.addProducts,this.deleteProducts);
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +15,11 @@ class _ProductManagerState extends State<ProductManager> {
       children: [
         Container(
           margin: EdgeInsets.all(10.0),
-          child: ProductControl(_addProducts),
+          child: ProductControl(addProducts),
         ),
-        Expanded( child: Products(_products, deleteProduct: _deleteProduct)) // Take all remaining space and scroll
+        Expanded( child: Products(products, deleteProduct: deleteProducts)) // Take all remaining space and scroll
       ],
     );
   }
+
 }
